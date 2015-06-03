@@ -10,7 +10,8 @@
 
     "require" : {
         "php"            : ">=5.3.3",
-        "symfony/config" : "~2.3"
+        "symfony/config" : "~2.3",
+		"symfony/property-access" : "~2.6"
     },
 
     "require-dev" : {

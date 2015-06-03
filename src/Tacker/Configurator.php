@@ -19,6 +19,9 @@ class Configurator
         $parameters = $this->loader->load($resource);
 
         foreach ($parameters as $k => $v) {
+			if (isset($pimple[$k]) && is_array($pimple[$k])) {
+				$v = array_replace_recursive ((array)$pimple[$k], $v);
+			}			
             $pimple->offsetSet($k, $v);
         }
     }
