@@ -28,7 +28,7 @@ class PropertyAccessPimpleNormalizer implements \Tacker\Normalizer
      */
     public function normalize($value)
     {
-        if (preg_match('{^%([a-z0-9_.]+)%$}', $value, $match)) {
+        if (preg_match('{^%([a-z0-9_.\[\]]+)%$}', $value, $match)) {
 			if ($this->accessor->isReadable($this->pimple, $match[1])) {
 				return $this->accessor->getValue($this->pimple, $match[1]);
 			} 
