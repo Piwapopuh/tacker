@@ -3,7 +3,7 @@
 namespace Tacker\Loader;
 
 use Symfony\Component\Yaml\Yaml;
-
+use Symfony\Component\Yaml\Parser as YamlParser;
 /**
  * @package Tacker
  */
@@ -15,7 +15,8 @@ class YamlFileLoader extends AbstractLoader
      */
     protected function read($resource)
     {
-        return Yaml::parse($resource);
+        $yamlParser = new YamlParser();
+        return $yamlParser->parse(file_get_contents($resource));
     }
 
     /**
